@@ -33,28 +33,28 @@ The same with Firebase you must have an acount as developer from Google Cloud Pl
 
 npm run dev
 
-<img src="./node-firebase-twetter/backend/img/test1.png"></img>
+<img src="./backend/img/test1.png"></img>
 
 ## App in the localhost
 
-<img src="./node-firebase-twetter/backend/img/test2.png"></img>
+<img src="./backend/img/test2.png"></img>
 
 ## Searching a word
 
-<img src="./node-firebase-twetter/backend/img/test3.png"></img>
+<img src="./backend/img/test3.png"></img>
 
 ## The Twitter API Response
 
-<img src="./node-firebase-twetter/backend/img/test4.png"></img>
+<img src="./backend/img/test4.png"></img>
 
 ## The data is saved in DB Firebase, it is a No SQL DB
 
-<img src="./node-firebase-twetter/backend/img/test5.png"></img>
+<img src="./backend/img/test5.png"></img>
 
 ## You can delete all again pushing DELETE button.
 
 
-<img src="./node-firebase-twetter/backend/img/test6.png"></img>
+<img src="./backend/img/test6.png"></img>
 
 
 The data is gone!
