@@ -1,0 +1,38 @@
+
+
+<h1>Welcome to Api Twitter with Firebase</h1>
+
+<div class="col-md-6 offset-md-3 p-2">
+        
+    <div class="card" action="method.GET">
+         <form class="d-flex p-4" role="search" action="/search/:" + $(input).val(word)   method="POST" id="form1">
+            <input class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search" id="search1" >
+            <button class="btn btn-outline-success" id='send' type="submit">Search</button>
+        </form>
+        <div class="card-header">
+            <div class="card-body">
+                {{#if tweets}}
+                <h1>Tweets</h1>
+                
+                  <ul class="list-group">
+                    {{#each tweets }}
+                        <li class="list-group-item d-flex jusify-conten-between align-items-center p-2">
+                            <b>{{name}}</b>
+                            <img src={{profile_img}} class="rounded float-start p-2" alt="..." />
+                            {{text}} 
+                        </li>
+                    {{/each}}
+                  </ul>
+                
+                {{else}}
+                <p>No tweets yet</p>
+                {{/if}}                
+            </div>
+            {{#if tweets }}
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end p-2">
+                    <a href="/delete-tweet/{{{@key}}}" class="btn btn-danger p-2">Delete</a>
+                </div> 
+            {{/if}}
+        </div>
+    </div>
+</div>
