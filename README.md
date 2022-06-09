@@ -43,13 +43,18 @@ npm run dev
 
 <img src="./backend/img/test3.png"></img>
 
-## The Twitter API Response
+When you are searching a word, this word is passed dynamically as a parameter to the API route and it reponds with the last five tweets. This tweets, first are saved in `firebase data base` and then they are called from de App.
 
-<img src="./backend/img/test4.png"></img>
+
+<img src="./backend/img/test7.png"></img>
 
 ## The data is saved in DB Firebase, it is a No SQL DB
 
 <img src="./backend/img/test5.png"></img>
+
+## We recover the data with the GET method from de DB
+
+<img src="./backend/img/test4.png"></img>
 
 ## You can delete all again pushing DELETE button.
 
