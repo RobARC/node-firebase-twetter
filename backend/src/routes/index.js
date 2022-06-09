@@ -2,6 +2,7 @@ const { Router } = require('express');
 const app = require('../app');
 const router = Router();
 const ApiClient = require('../config');
+const twitterClient = require('../config');
 const admin = require('firebase-admin');
 
 admin.initializeApp({
@@ -29,7 +30,8 @@ router.get('/search/:word', async (req, res) => {
 
     const params = { q: req.params.word, count: 5, result_type: 'recent', lang: 'es' }
 
-    await ApiClient.get('search/tweets', params, function (err, data, response) {
+    await ApiClient.ApiClient.get('search/tweets', params, function (err, data, response) {
+        //console.log(data);
         const allTweetsDto = data.statuses.map(tweet => tweetToDto(tweet));
         res.json(allTweetsDto)
     });
@@ -40,21 +42,55 @@ router.post('/search/:word', async (req, res) => {
 
     const params = { q: req.params.word, count: 5, result_type: 'recent', lang: 'es' }
 
-    await ApiClient.get('search/tweets', params, async function (err, data, response) {
-        //transfor tweets in a smaller data
-        const allTweetsDto = data.statuses.map(tweet => tweetToDto(tweet));
-        await saveInDB(allTweetsDto);
-        await res.redirect('/');
+    await ApiClient.ApiClient.get('search/tweets', params, async function (err, data, response) {
+        try {
+            //transfor tweets in a smaller data
+            const allTweetsDto = data.statuses.map(tweet => tweetToDto(tweet));
+            await saveInDB(allTweetsDto);
+            await res.redirect('/');
+        }
+        catch (err) {
+            console.log(err);
+        }
+
     });
 });
+
+router.get('/statuses/user_timeline/', async (req, res) => {
+    const params = { screen_name: 'TalCual', count: 5 }
+
+    twitterClient.twitterClient.get('/statuses/user_timeline/', params, function (err, data, response) {
+        //const tweets = [];
+
+        console.log(data)
+
+        //tweets.push(data);
+        //tweetToDto(data);
+
+        //console.log(tweets);
+    })
+
+    //const allTweetsDto = data
+
+    //console.log(allTweetsDto);
+    //await saveInDB(allTweetsDto);
+    //await res.redirect('/');
+
+
+})
+
+
 
 
 //Delete all Tweets
 router.get('/delete-tweet/', async (req, res) => {
-
-    await deleteTwits();
-    await res.redirect('/');
-
+    try {
+        await deleteTwits();
+        await res.redirect('/');
+    }
+    catch (err) {
+        console.log(err);
+    }
 });
 
 
@@ -64,6 +100,7 @@ function tweetToDto(tweet) {
         created_at: tweet.created_at,
         text: tweet.text,
         name: tweet.user.name,
+        screen_name: tweet.user.screen_name,
         id: tweet.user.id,
         location: tweet.user.location,
         description: tweet.user.description,
