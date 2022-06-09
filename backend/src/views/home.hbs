@@ -5,9 +5,9 @@
 <div class="col-md-6 offset-md-3 p-2">
         
     <div class="card" action="method.GET">
-         <form class="d-flex p-4" role="search" action="/search/:" + $(input).val(word)   method="POST" id="form1">
-            <input class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search" id="search1" >
-            <button class="btn btn-outline-success" id='send' type="submit">Search</button>
+         <form class="d-flex p-4" role="search" action="" method="POST" id="search1">
+            <input id="search" class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search" >
+            <button class="btn btn-outline-success" id='send' type="submit" onclick=changeActioAtt()>Search</button>
         </form>
         <div class="card-header">
             <div class="card-body">
@@ -36,3 +36,11 @@
         </div>
     </div>
 </div>
+<script>
+    const changeActioAtt = () => {
+        let valueInput = document.getElementById('search').value
+        console.log(valueInput)
+        let inputValue = document.querySelector('#search1')
+        inputValue.setAttribute('action', '/search/' + valueInput)       
+    }
+</script>
