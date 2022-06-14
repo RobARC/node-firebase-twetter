@@ -28,6 +28,7 @@ The same with Firebase you must have an acount as developer from Google Cloud Pl
 #### <li> dotenv</li>
 #### <li> firebase-admin</li>
 #### <li> twit</li>
+#### <li> twittter</li>
 
 ## starting the Server
 
