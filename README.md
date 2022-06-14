@@ -64,6 +64,18 @@ When you are searching a word, this word is passed dynamically as a parameter to
 
 The data is gone!
 
+## We adding a new functionality time_line with a new searcher
+
+It works with the screen_name parameter from twitter. If you know the screen_name of any user. You can use this parameter and search the last five twits from this user.
+
+<img src="./backend/img/test8.png"></img>
+
+For example we used a well-known media company as BluRadio.
+
+<img src="./backend/img/test9.png"></img>
+
+
+
 See you next!
 
 
