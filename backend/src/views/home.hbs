@@ -6,8 +6,12 @@
         
     <div class="card" action="method.GET">
          <form class="d-flex p-4" role="search" action="" method="POST" id="search1">
-            <input id="search" class="form-control me-2 p-2" type="search" placeholder="Search" aria-label="Search" >
-            <button class="btn btn-outline-success" id='send' type="submit" onclick=changeActioAtt()>Search</button>
+            <input id="search" class="form-control me-2 p-2" type="search" placeholder="Search any term e.g.: Colombia" aria-label="Search" >
+            <button class="btn btn-outline-success" id='send' type="submit" onclick=changeActioAtt()>Tweets</button>
+        </form>
+        <form class="d-flex p-4" role="search" action="" method="GET" id="search2">
+            <input id="search3" class="form-control me-2 p-2" type="search" placeholder="Search for screen_name e.g.: TalCual" aria-label="Search" >
+            <button class="btn btn-outline-primary" id='send2' type="submit" onclick=changeAction2()>TimeLine</button>
         </form>
         <div class="card-header">
             <div class="card-body">
@@ -17,9 +21,9 @@
                   <ul class="list-group">
                     {{#each tweets }}
                         <li class="list-group-item d-flex jusify-conten-between align-items-center p-2">
-                            <b>{{name}}</b>
+                            <b>{{screen_name}}</b>
                             <img src={{profile_img}} class="rounded float-start p-2" alt="..." />
-                            {{text}} 
+                             {{text}} 
                         </li>
                     {{/each}}
                   </ul>
@@ -42,5 +46,11 @@
         console.log(valueInput)
         let inputValue = document.querySelector('#search1')
         inputValue.setAttribute('action', '/search/' + valueInput)       
+    }
+    const changeAction2= () => {
+        let valueInput = document.getElementById('search3').value
+        console.log(valueInput)
+        let inputValue = document.querySelector('#search2')
+        inputValue.setAttribute('action', '/statuses/user_timeline/' + valueInput)       
     }
 </script>
