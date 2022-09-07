@@ -8,6 +8,9 @@ CRUD Web App using Nodejs, Firebase Realtime Database and express.
 
 ## Environment variables
 
+This Credentilas are important. Beacuse you will working with the Twitter API and Firebase Database. 
+So you must to haver developer accounts in boths applications. And cofirgure them properly.
+
 #### <li>GOOGLE_APPLICATION_CREDENTIALS</li>
 #### <li>TWITTER API CREDENTIALS</li>
 
